@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <title></title>
+  <link class="css" rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+  <meta charset=utf-8 />
+  <title>Karolaj</title>
+  <!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
+
 <body>
-  <input type="file" name="filename" accept="image/gif, image/jpeg, image/png">
-  </input>
+  <input type='file' onchange="readURL(this);" />
+  <img id="image" src="#" style="display:none" alt="your image" />
   <canvas id="myCanvas">
   </canvas>
-
-  <script>
-    window.onload = function() {
-      var canvas=document.getElementById("myCanvas");
-      var context=canvas.getContext("2d");
-      var img=document.getElementById("scream");
-      context.drawImage(img,10,10);
-    };
-  </script>
+  <div id="status"></div>
+  <script src="./fill-canvas.js"></script>
+  <script src="./get-color.js"></script>
 </body>
+
 </html>
