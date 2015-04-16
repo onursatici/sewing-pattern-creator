@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <input type="file" name="filename" accept="image/gif, image/jpeg, image/png">
+  </input>
+  <canvas id="myCanvas">
+  </canvas>
+
+  <script>
+    window.onload = function() {
+      var canvas=document.getElementById("myCanvas");
+      var context=canvas.getContext("2d");
+      var img=document.getElementById("scream");
+      context.drawImage(img,10,10);
+    };
+  </script>
+</body>
+</html>
