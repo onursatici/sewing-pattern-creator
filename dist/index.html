@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="karolaj">
+
+<head>
+  <link class="css" rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link class="css" rel="stylesheet" href="./style/app.css">
+  <base href="/">
+  <meta charset=utf-8 />
+  <title>Karolaj</title>
+  <!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="container" ng-controller="PatternController">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="row">
+          <span class="btn btn-default btn-file">
+          Browse<input type='file' class='btn btn-primary' onchange="readURL(this);">
+          </span>
+          <img id="image" src="#" style="display:none" alt="your image" />
+        </div>
+        <div id="status" class="row"></div>
+        <div class="row">
+          height= {{height}} width = {{width}} newColor = {{newColor}}
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label class="control-label">height:</label>
+            <input type="text" class="form-control" name="height" ng-model="height">
+            <label class="control-label">width:</label>
+            <input type="text" class="form-control" name="width" ng-model="width">
+          </div>
+        </div>
+
+
+        <div class="row" ng-repeat="c in colors">
+          <div class='col-sm-8'>
+            <input type='color' name='c' class='form-control' ng-model='colors[$index]' />
+          </div>
+          <div class='col-sm-4'>
+            <button class='btn btn-primary' ng-click='remove(colors[$index])'>Remove</button>
+          </div>
+        </div>
+
+
+        <div class='row' ng-if="display">
+          <div class='col-sm-8'>
+            <input type='color'  class='form-control' name="newColor" ng-model="$parent.newColor" />
+          </div>
+          <div class='col-sm-4'>
+            <button class='btn btn-primary' ng-click='remove()'>Remove</button>
+            <button class='btn btn-primary' ng-click='add()'>Add</button>
+          </div>
+        </div>
+        <button class="btn btn-default" ng-click="show()">Add color</button>
+      </div>
+      <div class="col-md-10">
+        <canvas id="myCanvas">
+        </canvas>
+      </div>
+    </div>
+  </div>
+  <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./bower_components/angular/angular.min.js"></script>
+  <script src="./src/app.js"></script>
+  <script src="./src/controllers.js"></script>
+  <script src="./src/fill-canvas.js"></script>
+  <script src="./src/get-color.js"></script>
+</body>
+
+</html>
