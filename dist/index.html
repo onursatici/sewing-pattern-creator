@@ -36,26 +36,17 @@
         </div>
 
 
-        <div class="row" ng-repeat="c in colors">
+        <div class="row" ng-repeat="c in colors track by $index">
           <div class='col-sm-8'>
             <input type='color' name='c' class='form-control' ng-model='colors[$index]' />
           </div>
           <div class='col-sm-4'>
-            <button class='btn btn-primary' ng-click='remove(colors[$index])'>Remove</button>
+            <button class='btn btn-primary' ng-click='remove($index)'>Remove</button>
           </div>
         </div>
 
 
-        <div class='row' ng-if="display">
-          <div class='col-sm-8'>
-            <input type='color'  class='form-control' name="newColor" ng-model="$parent.newColor" />
-          </div>
-          <div class='col-sm-4'>
-            <button class='btn btn-primary' ng-click='remove()'>Remove</button>
-            <button class='btn btn-primary' ng-click='add()'>Add</button>
-          </div>
-        </div>
-        <button class="btn btn-default" ng-click="show()">Add color</button>
+        <button class="btn btn-default" ng-click="add()">Add color</button>
       </div>
       <div class="col-md-10">
         <canvas id="myCanvas">
