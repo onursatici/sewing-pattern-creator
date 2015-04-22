@@ -17,3 +17,6 @@
     cursor: inherit;
     display: block;
 }
+#mySvg {
+  position: absolute;
+}

@@ -18,7 +18,7 @@
       <div class="col-md-2">
         <div class="row">
           <span class="btn btn-default btn-file">
-          Browse<input type='file' class='btn btn-primary' onchange="readURL(this);">
+          Browse<input type='file' class='btn btn-primary' onchange="angular.element(this).scope().readURL(this);">
           </span>
           <img id="image" src="#" style="display:none" alt="your image" />
         </div>
@@ -37,7 +37,7 @@
 
 
         <div class="row" ng-repeat="c in colors track by $index">
-          <div class='col-sm-8'>
+          <div class='col-sm-6'>
             <input type='color' name='c' class='form-control' ng-model='colors[$index]' />
           </div>
           <div class='col-sm-4'>
@@ -49,7 +49,9 @@
         <button class="btn btn-default" ng-click="add()">Add color</button>
       </div>
       <div class="col-md-10">
-        <canvas id="myCanvas">
+        <svg id="mySvg" ng-mousemove="mouseMove($event)">
+        </svg>
+        <canvas id="myCanvas" ng-mousemove="mouseMove($event)">
         </canvas>
       </div>
     </div>
@@ -57,10 +59,10 @@
   <script src="./bower_components/jquery/dist/jquery.min.js"></script>
   <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="./bower_components/angular/angular.min.js"></script>
+  <script src="./bower_components/d3/d3.min.js"></script>
   <script src="./src/app.js"></script>
   <script src="./src/controllers.js"></script>
-  <script src="./src/fill-canvas.js"></script>
-  <script src="./src/get-color.js"></script>
+  <!--<script src="./src/get-color.js"></script>-->
 </body>
 
 </html>
