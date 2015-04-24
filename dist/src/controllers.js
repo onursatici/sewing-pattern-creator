@@ -87,7 +87,7 @@ angular.module('karolaj')
             .classed('drag', true)
             .attr('x', rectX)
             .attr('y', rectY)
-            .attr("stroke-width", 0.01)
+            .attr("stroke-width", 0)
             //.attr("stroke", "rgb(140,15,200)")
             .attr("stroke", $scope.colors[0])
             .attr('fill', fill + '') //TODO change to fill
@@ -108,7 +108,9 @@ angular.module('karolaj')
         blueSum += colorArray[i + 2];
         count++;
       }
-      //return '#' + ('000000' + rgbToHex(Math.floor(redSum / count), Math.floor(greenSum / count), Math.floor(blueSum / count))).slice(-6);
+      if(!$scope.colors.length){
+        return '#' + ('000000' + rgbToHex(Math.floor(redSum / count), Math.floor(greenSum / count), Math.floor(blueSum / count))).slice(-6);
+      }
       //return 'rgb('+Math.floor(redSum/count)+','+Math.floor(greenSum/count)+','+Math.floor(blueSum/count)+')';
       return findMatchingColor(Math.floor(redSum/count),Math.floor(greenSum/count),Math.floor(blueSum/count));
     }
